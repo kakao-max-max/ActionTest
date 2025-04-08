@@ -36,4 +36,7 @@ public class ActionFrameworkTest {
     public func placeholderFunction5() {
         
     }
+    public func placeholderFunction6() {
+        
+    }
 }
