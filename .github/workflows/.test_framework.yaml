@@ -26,6 +26,6 @@ jobs:
       - name: Run Tests
         run: |
           xcodebuild test \
-            -workspace ActionFramework/ActionFramework.xcworkspace \
+            -workspace ActionTest.xcworkspace \
             -scheme ActionFramework \
             -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.4,arch=arm64'
