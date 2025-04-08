@@ -20,4 +20,8 @@ public class ActionFrameworkTest {
     public func returnsOdd() -> Int {
         (returnsEven() + 1)
     }
+
+    public func placeholderFunction() {
+        
+    }
 }

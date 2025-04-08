@@ -2,6 +2,8 @@ name: ActionFramework Tests
 
 on:
   push:
+    branches:
+      - main
     paths:
       - 'ActionFramework/**/*.swift'
   pull_request:
