@@ -1,0 +1,33 @@
+name: ActionFramework Test Marketplace
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'ActionFramework/**/*.swift'
+  pull_request:
+    paths:
+      - 'ActionFramework/**/*.swift'
+
+jobs:
+  test:
+    name: Run ActionFramework Tests
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Run Tests with Xcodebuild Action
+        uses: sersoft-gmbh/xcodebuild-action@v3
+        with:
+          action: test
+          workspace: ActionTest.xcworkspace
+          scheme: ActionFrameworkTests
+          destination: platform=iOS Simulator,name=iPhone 16
+          

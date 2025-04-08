@@ -5,10 +5,10 @@ on:
     branches:
       - main
     paths:
-      - 'ActionFramework/**/*.swift'
+      - 'ActionFramework/**/*.py'
   pull_request:
     paths:
-      - 'ActionFramework/**/*.swift'
+      - 'ActionFramework/**/*.py'
 
 jobs:
   test:
