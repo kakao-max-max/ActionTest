@@ -39,5 +39,5 @@ jobs:
           # 테스트 실행
           xcodebuild test \
             -workspace ActionTest.xcworkspace \
-            -scheme ActionFramework \
+            -scheme ActionFrameworkTests \
             -destination "id=$UDID"
