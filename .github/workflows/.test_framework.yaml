@@ -51,4 +51,4 @@ jobs:
           xcodebuild test \
             -workspace ActionTest.xcworkspace \
             -scheme ActionFrameworkTests \
-            -destination 'platform=iOS Simulator,name=Any iOS Simulator Device,OS=latest'
+            -destination 'platform=iOS Simulator,name=iPhone 16'
