@@ -25,18 +25,29 @@ jobs:
 
       - name: Find Available Simulator and Run Tests
         run: |
-          # 첫 번째 사용 가능한 iPhone 시뮬레이터 UDID 추출 (JSON 파싱)
-          UDID=$(xcrun simctl list devices --json | \
-            jq -r '.devices | to_entries[] | select(.key | startswith("com.apple.CoreSimulator.SimRuntime.iOS")) |
-              .value[] | select(.isAvailable == true and .name | test("^iPhone")) | .udid' | \
-            head -n 1)
+          echo "🔍 Fetching available simulators..."
+          xcrun simctl list devices --json > devices.json
+          cat devices.json | jq '.devices' > all_devices.json
+          
+          echo "🔍 Filtering for available iPhone simulators..."
+          UDID=$(cat devices.json | jq -r '
+            .devices | to_entries[] |
+            select(.key | startswith("com.apple.CoreSimulator.SimRuntime.iOS")) |
+            .value[] |
+            select(.isAvailable == true and (.name | test("^iPhone"))) |
+            .udid' | head -n 1)
 
-          echo "Using simulator with UDID: $UDID"
+          if [ -z "$UDID" ]; then
+            echo "❌ No available iPhone simulators found!"
+            exit 1
+          fi
 
-          # 시뮬레이터 부팅 (이미 부팅돼 있으면 무시)
+          echo "✅ Using simulator with UDID: $UDID"
+
+          echo "🚀 Booting simulator..."
           xcrun simctl boot "$UDID" || true
 
-          # 테스트 실행
+          echo "🧪 Running tests..."
           xcodebuild test \
             -workspace ActionTest.xcworkspace \
             -scheme ActionFrameworkTests \
