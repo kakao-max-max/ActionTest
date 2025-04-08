@@ -24,8 +24,13 @@ jobs:
           xcode-version: latest-stable
           
       - name: Run Tests
+        env:
+           scheme: ${{ 'default' }}
+           platform: ${{ 'iOS Simulator' }}
         run: |
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
+
           xcodebuild test \
             -workspace ActionTest.xcworkspace \
             -scheme ActionFramework \
-            -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.4,arch=arm64'
+            -destination "platform=$platform,name=$device"
