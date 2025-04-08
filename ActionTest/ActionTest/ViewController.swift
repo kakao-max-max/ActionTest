@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ActionFramework
 
 class ViewController: UIViewController {
 
@@ -13,8 +14,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        print("EVEN: \(Question().returnsEven())")
-        print("ODD : \(Question().returnsOdd())")
+        print("EVEN: \(ActionFrameworkTest().returnsEven())")
+        print("ODD : \(ActionFrameworkTest().returnsOdd())")
     }
 
 
