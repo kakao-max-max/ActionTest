@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "BA919078-05C8-45F3-BE7C-55ECA66F85F5",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:ActionFramework.xcodeproj",
+        "identifier" : "50654CFE2DA57D8000AC3651",
+        "name" : "ActionFrameworkTests"
+      }
+    }
+  ],
+  "version" : 1
+}

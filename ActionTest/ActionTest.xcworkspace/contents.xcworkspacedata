@@ -7,4 +7,7 @@
    <FileRef
       location = "group:ActionFramework/ActionFramework.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:ActionFramework/ActionFramework.xctestplan">
+   </FileRef>
 </Workspace>
