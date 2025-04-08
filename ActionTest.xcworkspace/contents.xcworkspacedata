@@ -8,6 +8,6 @@
       location = "group:ActionFramework/ActionFramework.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:ActionFramework/ActionFramework.xctestplan">
+      location = "group:ActionFramework/ActionFrameworkTests.xctestplan">
    </FileRef>
 </Workspace>
