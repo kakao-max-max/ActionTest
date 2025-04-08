@@ -26,7 +26,7 @@ jobs:
       - name: Find Available Simulator and Run Tests
         run: |
           # iPhone 시뮬레이터 중 사용 가능한 첫 번째 기기 가져오기
-          SIMULATOR_INFO=$(xcrun simctl list devices available | grep -m 1 "iPhone")
+          SIMULATOR_INFO=$(xcrun simctl list devices available | grep -m 1 "iOS")
           SIMULATOR_UDID=$(echo "$SIMULATOR_INFO" | sed -E 's/.*\(([^)]+)\).*/\1/')
 
           echo "Using simulator with UDID: $SIMULATOR_UDID"
