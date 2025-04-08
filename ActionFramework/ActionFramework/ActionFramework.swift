@@ -27,4 +27,7 @@ public class ActionFrameworkTest {
     public func placeholderFunction2() {
         
     }
+    public func placeholderFunction3() {
+        
+    }
 }
