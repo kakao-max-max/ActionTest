@@ -9,9 +9,14 @@ on:
   pull_request:
     paths:
       - 'ActionFramework/**/*.py'
-  manual:
-    branches:
-      - "*"
+
+  workflow_dispatch:
+    inputs:
+      bool_value:
+        description: 'Bool Value'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   test:
